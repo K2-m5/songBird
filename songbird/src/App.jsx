@@ -1,14 +1,7 @@
 import React from 'react';
-import Header from './app/header/header';
-import Body from './app/body/Body';
+import ReactDOM from 'react-dom';
+import SongBird from './app/containers/SongBirdContainer';
+import 'bootswatch/dist/materia/bootstrap.min.css';
+import './styles/sass/style.scss';
 
-function App() {
-  return (
-    <div>
-      <Header />
-      <Body />
-    </div>
-  );
-}
-
-export default App;
+ReactDOM.render(React.createElement(SongBird), document.getElementById('root'));
