@@ -7,17 +7,23 @@ class SongBird extends React.Component {
     super(props);
     this.state = {
       totalScore: 0,
+      roundNames: ['Птицы Европы', 'Птицы Северной Америки', 'Птицы Африки', 'Птицы Антарктики', 'Птицы Азии', 'Птицы Южной Америки'],
+      currentRound: 0,
     };
   }
 
   render() {
     const {
       totalScore,
+      roundNames,
+      currentRound,
     } = this.state;
 
     return (
       <QuizSongBird
         totalScore={totalScore}
+        roundNames={roundNames}
+        currentRound={currentRound}
       />
     );
   }
