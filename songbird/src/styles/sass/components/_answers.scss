@@ -1,0 +1,35 @@
+.answers {
+  font-size: 1.8rem;
+
+  button {
+    outline: none;
+  }
+
+  @media (max-width: 570px) {
+    margin: 0 0 15px;
+  }
+}
+
+.answerStatus {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin-right: 15px;
+  border-radius: 50%;
+  transition: .1s;
+  background-color: #fff;
+
+  &.correct {
+    background-color: #6ced6c;
+  }
+
+  &.wrong {
+    background-color: #ff0000;
+  }
+}
+
+.answersDescription > div {
+  @media (max-width: 570px) {
+    margin: 10px 0;
+  }
+}
