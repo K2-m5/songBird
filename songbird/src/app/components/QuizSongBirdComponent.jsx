@@ -7,13 +7,31 @@ import Question from './QuestionComponent';
 import AnswersAndBirdInfo from './AnswersAndBirdInfoComponent';
 import NextRoundButton from './NextRoundButtonComponent';
 import birdsData from '../birdsData';
+import FinishGame from './FinishGame';
 
 function QuizSongBird(props) {
   const {
     totalScore, roundNames, currentRound, currentBird, correctBird,
-    isCorrectAnswer, birdAudio, nextRound, answersStatus, handleClickAnswer,
+    isCorrectAnswer, birdAudio, nextRound, answersStatus, handleClickAnswer, restartGame,
   } = props;
   const currentBirds = birdsData[currentRound];
+  if (currentRound === 6) {
+    return (
+      <div className="container">
+        <Header totalScore={totalScore} />
+        <RoundList
+          roundNames={roundNames}
+          currentRound={currentRound}
+        />
+        <FinishGame
+          totalScore={totalScore}
+          roundNames={roundNames}
+          currentRound={currentRound}
+          restartGame={() => restartGame()}
+        />
+      </div>
+    );
+  }
   return (
     <div className="container">
       <Header totalScore={totalScore} />
@@ -53,6 +71,7 @@ QuizSongBird.propTypes = {
   nextRound: PropTypes.func.isRequired,
   answersStatus: PropTypes.arrayOf(PropTypes.string).isRequired,
   handleClickAnswer: PropTypes.func.isRequired,
+  restartGame: PropTypes.func.isRequired,
 };
 
 QuizSongBird.defaultProps = {

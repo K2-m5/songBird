@@ -34,10 +34,19 @@ class SongBird extends React.Component {
     }));
   }
 
+  restartGame() {
+    this.setState(() => ({
+      currentRound: 0,
+      correctBird: getRandomNumber(),
+      totalScore: 0,
+      currentPoints: 5,
+      currentBird: null,
+    }));
+  }
+
   correctAnswer() {
     const { isCorrectAnswer } = this.state;
     if (!isCorrectAnswer) {
-      this.birdAudio.current.audio.current.pause();
       const correctAudio = new Audio('./audio/game-sounds/correct.mp3');
       correctAudio.play();
       const newAnswersStatus = this.getAnswerStatus('correct');
@@ -81,7 +90,7 @@ class SongBird extends React.Component {
     const { isCorrectAnswer } = this.state;
     if (isCorrectAnswer) {
       this.setState((state) => ({
-        currentLevel: state.currentLevel + 1,
+        currentRound: state.currentRound + 1,
         correctBird: getRandomNumber(),
         currentBird: null,
         isCorrectAnswer: false,
@@ -114,6 +123,7 @@ class SongBird extends React.Component {
         answersStatus={answersStatus}
         handleClickAnswer={(i) => this.handleClickAnswer(i)}
         nextRound={() => this.nextRound()}
+        restartGame={() => this.restartGame}
       />
     );
   }
