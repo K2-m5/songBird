@@ -22,6 +22,7 @@ module.exports = {
       patterns: [
         { from: './audio', to: './audio' },
         { from: './img/birds', to: './birds' },
+        { from: './img/favicon.png', to: './favicon.png' },
       ],
     }),
     new MiniCssExtractPlugin({
