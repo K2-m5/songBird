@@ -1,0 +1,27 @@
+.gameOver {
+  text-align: center;
+}
+
+.gameOver__congratulations {
+  font-size: 6rem;
+  @media (max-width: 570px) {
+    font-size: 4rem;
+  }
+}
+
+.gameOver__points {
+  font-size: 1.8rem;
+  margin: 15px 0;
+}
+
+.gameOver__line {
+  background-color: rgb(255, 255, 255, 0.2);
+  margin: 30px 0;
+}
+
+.gameOver__certificate {
+  width: 70%;
+  @media (max-width: 570px) {
+    width: 100%;
+  }
+}

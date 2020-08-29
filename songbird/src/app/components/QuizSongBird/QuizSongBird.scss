@@ -1,0 +1,53 @@
+.randomBird {
+  display: flex;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+
+  @media (max-width: 570px) {
+    flex-direction: column;
+  }
+
+  .list-group {
+    flex-grow: 1;
+    padding: 0 0 0 10px;
+  }
+  
+  .list-group-item {
+    font-size: 2rem;
+
+    &:nth-child(1) {
+      height: 30%;
+    }
+
+    &:nth-child(2) {
+      height: 70%;
+    }
+  }
+}
+
+.randomBird__image {
+  border-radius: 1rem;
+  width: 200px;
+  height: 155px;
+  object-fit: cover;
+
+  @media (max-width: 570px) {
+    margin: 0 auto 20px;
+  }
+}
+
+.pagination {
+  display: flex;
+  cursor: alias;
+  pointer-events: none;
+  font-size: 1.6rem;
+  flex-wrap: wrap;
+
+  .page-item {
+    flex: auto;
+    text-align: center;
+
+    .page-link {
+      cursor: default;
+    }
+  }
+}

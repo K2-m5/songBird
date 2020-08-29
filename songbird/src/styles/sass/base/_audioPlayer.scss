@@ -1,0 +1,44 @@
+.rhap_container {
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.rhap_rewind-button, .rhap_forward-button, .rhap_repeat-button {
+  display: none;
+}
+
+.rhap_time {
+  color: #444;
+}
+
+.rhap_progress-filled {
+  background-color: #2196f3;
+}
+
+.rhap_progress-indicator {
+  background-color: #2196f3;
+}
+
+.rhap_volume-indicator {
+  background-color: #2196f3;
+}
+
+.rhap_volume-bar {
+  background-color: #2196f3;
+}
+
+.rhap_main-controls-button {
+  color: #2196f3;
+
+  &:hover {
+    color: #0c7cd5
+  }
+}
+
+.rhap_volume-button {
+  color: #2196f3;
+
+  &:hover {
+    color: #0c7cd5
+  }
+}

@@ -1,0 +1,18 @@
+.round-list {
+  display: flex;
+  padding: 0;
+  cursor: alias;
+  pointer-events: none;
+  list-style-type: none;
+  font-size: 1.6rem;
+  flex-wrap: wrap;
+
+  .page-item {
+    flex: auto;
+    text-align: center;
+
+    .page-link {
+      cursor: default;
+    }
+  }
+}
