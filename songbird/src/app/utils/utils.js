@@ -1,6 +1,6 @@
-const getRandomBirdNumber = () => {
+const getRandomNumber = () => {
   const maxNumber = 6;
   return Math.floor(Math.random() * maxNumber);
 };
 
-export default getRandomBirdNumber;
+export default getRandomNumber;

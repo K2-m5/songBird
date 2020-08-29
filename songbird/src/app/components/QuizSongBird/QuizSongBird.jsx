@@ -1,13 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Header from './HeaderComponent';
-import RoundList from './RoundListComponent';
-import Question from './QuestionComponent';
-import AnswersAndBirdInfo from './AnswersAndBirdInfoComponent';
-import NextRoundButton from './NextRoundButtonComponent';
-import birdsData from '../birdsData';
-import FinishGame from './FinishGame';
+import Header from '../Header/Header';
+import RoundList from '../RoundList/RoundList';
+import Question from '../Question/Question';
+import Answer from '../Answer/Answers';
+import BirdInfo from '../BirdInfo/BirdInfo';
+import NextRoundButton from '../NextRoundButton/NextRoundButton';
+import birdsData from '../../birdsData';
+import FinishGame from '../FinishGame/FinishGame';
 
 function QuizSongBird(props) {
   const {
@@ -43,15 +44,25 @@ function QuizSongBird(props) {
         currentBirds={currentBirds}
         correctBird={correctBird}
         isCorrectAnswer={isCorrectAnswer}
-        randomBirdPlayer={birdAudio}
+        birdAudio={birdAudio}
       />
-      <AnswersAndBirdInfo
-        currentBirds={currentBirds}
-        currentBird={currentBird}
-        handleClickAnswer={(i) => handleClickAnswer(i)}
-        correctBird={correctBird}
-        answersStatus={answersStatus}
-      />
+      <div className="answersDescription row">
+        <div className="col-md">
+          <Answer
+            currentBirds={currentBirds}
+            handleClickAnswer={(i) => handleClickAnswer(i)}
+            currentBird={currentBird}
+            correctBird={correctBird}
+            answersStatus={answersStatus}
+          />
+        </div>
+        <div className="col-md">
+          <BirdInfo
+            currentBirds={currentBirds}
+            currentBird={currentBird}
+          />
+        </div>
+      </div>
       <NextRoundButton
         nextRound={() => nextRound()}
         isCorrectAnswer={isCorrectAnswer}
@@ -67,11 +78,11 @@ QuizSongBird.propTypes = {
   currentBird: PropTypes.number,
   correctBird: PropTypes.number.isRequired,
   isCorrectAnswer: PropTypes.bool.isRequired,
-  birdAudio: PropTypes.objectOf(PropTypes.string).isRequired,
   nextRound: PropTypes.func.isRequired,
   answersStatus: PropTypes.arrayOf(PropTypes.string).isRequired,
   handleClickAnswer: PropTypes.func.isRequired,
   restartGame: PropTypes.func.isRequired,
+  birdAudio: PropTypes.objectOf(PropTypes.string).isRequired,
 };
 
 QuizSongBird.defaultProps = {

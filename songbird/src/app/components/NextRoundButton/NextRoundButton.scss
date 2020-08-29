@@ -1,0 +1,14 @@
+button.next-round {
+  width: 100%;
+  margin: 20px 0px;
+  transition: .3s;
+  font-size: 20px;
+
+  &.disabled {
+    cursor: default;
+  }
+}
+
+button.gameOver__button {
+  font-size: 20px;
+}

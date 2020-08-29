@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function Answer(props) {
-  const { currentBirds, handleClickAnswer, answersStatus } = props;
+import './Answers.scss';
 
+function Answer({ currentBirds, handleClickAnswer, answersStatus }) {
   const AnswersList = Object.values(currentBirds).map((item, index) => {
     const answerStatusClass = answersStatus === null ? 'answerStatus' : `answerStatus ${answersStatus[index]}`;
     return (

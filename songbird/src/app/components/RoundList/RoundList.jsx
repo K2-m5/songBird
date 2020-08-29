@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function RoundList(props) {
-  const { roundNames, currentRound } = props;
+import './RoundList.scss';
 
-  const levels = roundNames.map((name, index) => {
+function RoundList({ roundNames, currentRound }) {
+  const Rounds = roundNames.map((name, index) => {
     const nameClass = index === currentRound ? 'page-item active' : 'page-item';
     return (
       <li key={name} className={nameClass}>
@@ -15,7 +15,7 @@ function RoundList(props) {
 
   return (
     <ul className="round-list">
-      {levels}
+      {Rounds}
     </ul>
   );
 }

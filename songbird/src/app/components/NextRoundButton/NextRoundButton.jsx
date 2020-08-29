@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function NextRoundButton(props) {
-  const { nextRound, isCorrectAnswer } = props;
-  const buttonClass = isCorrectAnswer ? 'nextButton btn btn-primary' : 'nextButton btn btn-primary disabled';
+import './NextRoundButton.scss';
+
+function NextRoundButton({ nextRound, isCorrectAnswer }) {
+  const buttonClass = isCorrectAnswer ? 'btn btn-primary next-round ' : 'btn btn-primary disabled next-round';
   return (
     <button onClick={() => nextRound()} type="button" className={buttonClass}>Следующий вопрос</button>
   );

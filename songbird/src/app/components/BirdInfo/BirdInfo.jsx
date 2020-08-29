@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import AudioPlayer from 'react-h5-audio-player';
 
+import './BirdInfo.scss';
+
 function getCardInfo(currentBirdCard, currentBirds) {
   let cardInfo;
   if (currentBirdCard === null) {
@@ -13,7 +15,7 @@ function getCardInfo(currentBirdCard, currentBirds) {
     cardInfo = (
       <>
         <div className="card-body birdInfo__card">
-          <img className="birdInfo__birdImage" src={image} alt="Ворон" />
+          <img className="birdInfo__birdImage" src={image} alt={name} />
           <ul className="list-group list-group-flush birdInfo__list">
             <li className="list-group-item birdInfo__name">{name}</li>
             <li className="list-group-item birdInfo__latin">{latin}</li>
@@ -32,8 +34,7 @@ function getCardInfo(currentBirdCard, currentBirds) {
   return cardInfo;
 }
 
-function BirdInfo(props) {
-  const { currentBird, currentBirds } = props;
+function BirdInfo({ currentBird, currentBirds }) {
   const cardInfo = getCardInfo(currentBird, currentBirds);
 
   return (

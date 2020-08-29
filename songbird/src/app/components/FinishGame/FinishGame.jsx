@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import './FinishGame.scss';
+
 function FinishGame({ totalScore, restartGame }) {
   return (
     <div className="gameOver jumbotron">

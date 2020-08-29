@@ -1,9 +1,9 @@
 import React, { createRef } from 'react';
 
-import QuizSongBird from '../components/QuizSongBirdComponent';
-import getRandomNumber from '../utils/utils';
+import QuizSongBird from '../QuizSongBird/QuizSongBird';
+import getRandomNumber from '../../utils/utils';
 
-class SongBird extends React.Component {
+export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -47,6 +47,7 @@ class SongBird extends React.Component {
   correctAnswer() {
     const { isCorrectAnswer } = this.state;
     if (!isCorrectAnswer) {
+      this.birdAudio.current.audio.current.pause();
       const correctAudio = new Audio('./audio/game-sounds/correct.mp3');
       correctAudio.play();
       const newAnswersStatus = this.getAnswerStatus('correct');
@@ -83,7 +84,7 @@ class SongBird extends React.Component {
 
   async handleClickAnswer(birdNum) {
     await this.setBirdCard(birdNum);
-    this.checkAnswer();
+    await this.checkAnswer();
   }
 
   nextRound() {
@@ -123,10 +124,8 @@ class SongBird extends React.Component {
         answersStatus={answersStatus}
         handleClickAnswer={(i) => this.handleClickAnswer(i)}
         nextRound={() => this.nextRound()}
-        restartGame={() => this.restartGame}
+        restartGame={() => this.restartGame()}
       />
     );
   }
 }
-
-export default SongBird;
